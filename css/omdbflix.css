@@ -1,0 +1,10 @@
+.result-thumbnail {
+	border-width:1px;
+	border-style:solid;
+	border-color:rgb(227, 227, 227);
+}
+
+.result-title  {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
