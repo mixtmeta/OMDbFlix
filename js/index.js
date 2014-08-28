@@ -2,6 +2,11 @@ var SearchViewModel = function() {
 	var self = this;
 	self.title = ko.observable();
 	
+	self.submit = function() {
+		history.pushState({ q: self.title()}, self.title(), '?q=' + encodeURIComponent(self.title()));
+		self.doSearch();
+	};
+	
 	self.doSearch = function() {
 		$.ajax({
 			type: 'GET',
@@ -102,6 +107,34 @@ var mappingOptions = {
 		return new ResultViewModel(options.data);
 	}
 };
+
+$(window).bind('popstate', function() {
+	var q = '';
+	if(event.state) {
+		q = event.state.q;
+	}
+	
+	searchViewModel.title(q);
+	searchViewModel.doSearch();
+});
+
+$(document).ready(function() {
+	$.QueryString = (function (a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i) {
+            var p = a[i].split('=');
+            if (p.length != 2) continue;
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'));
+	
+	if($.QueryString["q"] !== undefined) {
+		searchViewModel.title($.QueryString["q"]);
+		searchViewModel.doSearch();
+	}
+});
 
 var modalViewModel;
 var searchViewModel = new SearchViewModel();
