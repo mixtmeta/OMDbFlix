@@ -1,10 +1,37 @@
 .result-thumbnail {
-	border-width:1px;
-	border-style:solid;
-	border-color:rgb(227, 227, 227);
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	width: auto; 
+	height: auto;
+	max-width: 100%; 
+	max-height: 100%;
+	transform: translate(-50%, -50%);
 }
 
-.result-title  {
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
+.result-thumbnail-container {
+	height: 236px;
+	width: 100%;
+	display: inline-block;
+	position: relative;
+}
+
+.result-title-container  {
+	height: 83px;
+	width: 100%;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
+
+.result-title {
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	width: auto; 
+	height: auto;
+	max-width: 100%; 
+	max-height: 100%;
+	text-align: center;
+	transform: translate(-50%, -50%);
 }

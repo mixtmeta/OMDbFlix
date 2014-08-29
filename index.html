@@ -26,10 +26,12 @@
 				<div class="col-md-1"></div>
 				<!-- ko foreach: $data -->
 				<div class="col-md-2" data-toggle="modal" data-target="#modalDetails" data-bind="click: loadModal">
-					<div class="center-block">
-						<img class="img-responsive result-thumbnail" src="http://placehold.it/166x236&text=No+Image" alt="No Image" data-bind="attr: {src: posterUrl}">
-						<div class="well result-title">
-							<label class="form-static" data-bind="text: Title">
+					<div class="well center-block">
+						<div class="result-thumbnail-container">
+							<img class="result-thumbnail" data-bind="attr: {src: posterUrl}">
+						</div>
+						<div class="result-title-container">
+							<label class="form-static result-title" data-bind="text: Title">
 						</div>						
 					</div>
 				</div>
@@ -39,16 +41,16 @@
 		</div>
 		<div class="modal fade" id="modalDetails">
 			<div class="modal-dialog">
-				<div class="modal-content">
+				<div class="modal-content" id="modalContent" style="display:none;">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<button type="button" class="close" data-dismiss="modal" data-bind="click: hideModalContent"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 						<h4 class="modal-title" data-bind="text: Title"></h4>
 					</div>
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-md-4">
 								<p>
-								<img class="img-responsive result-thumbnail" src="http://placehold.it/166x236&text=No+Image" alt="No Image" data-bind="attr: {src: posterUrl}">
+								<img class="img-responsive" data-bind="attr: {src: posterUrl}">
 								</p>
 							</div>
 							<div class="col-md-8">
@@ -70,7 +72,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: hideModalContent">Close</button>
 					</div>
 				</div>
 			</div>

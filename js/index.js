@@ -35,6 +35,10 @@ var ModalViewModel = function(data) {
 			return 'http://placehold.it/166x236&text=No+Image';
 		}
 	});
+	
+	self.hideModalContent = function() {
+		$('#modalContent').hide();
+	};
 }
 
 var ResultViewModel = function(data) {
@@ -72,6 +76,7 @@ var ResultViewModel = function(data) {
 					ko.applyBindings(modalViewModel, $('#modalDetails')[0]);
 				}
 				ko.mapping.fromJS(data, modalViewModel);
+				$('#modalContent').show();
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert('Don\'t panic, but something went wrong.\r\n' + errorThrown);
