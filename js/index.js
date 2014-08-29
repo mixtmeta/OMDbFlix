@@ -37,7 +37,7 @@ var ModalViewModel = function(data) {
 	});
 	
 	self.hideModalContent = function() {
-		$('#modalContent').hide();
+		$('#modalDetails').modal('hide');
 	};
 }
 
@@ -76,7 +76,7 @@ var ResultViewModel = function(data) {
 					ko.applyBindings(modalViewModel, $('#modalDetails')[0]);
 				}
 				ko.mapping.fromJS(data, modalViewModel);
-				$('#modalContent').show();
+				$('#modalDetails').modal('show');
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				alert('Don\'t panic, but something went wrong.\r\n' + errorThrown);

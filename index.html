@@ -9,29 +9,29 @@
 	</head>
 	<body>
 		<div class="container">
-		<div class="navbar navbar-default">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/">OMDbflix</a>
-			</div>
-			<form id="searchForm" class="navbar-form pull-right" role="form" data-bind="submit: submit">
-				<div class="form-group">
-					<input class="form-control" id="title" placeholder="Search for a title..." data-bind="value: title">
+			<div class="navbar navbar-default">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">OMDbflix</a>
 				</div>
-				<button class="btn btm-primary" type="submit">Search</button>
-			</form>
-		</div>
+				<form id="searchForm" class="navbar-form pull-right" role="form" data-bind="submit: submit">
+					<div class="form-group">
+						<input class="form-control" id="title" placeholder="Search for a title..." data-bind="value: title">
+					</div>
+					<button class="btn btm-primary" type="submit">Search</button>
+				</form>
+			</div>
 		</div>
 		<div class="container" id="results" style="display:none;" data-bind="foreach: SearchResult">
 			<div class="row" style="padding:5 0">
 				<div class="col-md-1"></div>
 				<!-- ko foreach: $data -->
-				<div class="col-md-2" data-toggle="modal" data-target="#modalDetails" data-bind="click: loadModal">
+				<div class="col-md-2" data-bind="click: loadModal">
 					<div class="well center-block">
 						<div class="result-thumbnail-container">
 							<img class="result-thumbnail" data-bind="attr: {src: posterUrl}">
 						</div>
 						<div class="result-title-container">
-							<label class="form-static result-title" data-bind="text: Title">
+							<label class="form-static result-title" data-bind="text: Title"></label>
 						</div>						
 					</div>
 				</div>
@@ -41,9 +41,9 @@
 		</div>
 		<div class="modal fade" id="modalDetails">
 			<div class="modal-dialog">
-				<div class="modal-content" id="modalContent" style="display:none;">
+				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" data-bind="click: hideModalContent"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<button type="button" class="close" data-bind="click: hideModalContent"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 						<h4 class="modal-title" data-bind="text: Title"></h4>
 					</div>
 					<div class="modal-body">
@@ -72,7 +72,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" data-bind="click: hideModalContent">Close</button>
+						<button type="button" class="btn btn-default" data-bind="click: hideModalContent">Close</button>
 					</div>
 				</div>
 			</div>
